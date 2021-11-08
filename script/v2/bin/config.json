@@ -1,0 +1,60 @@
+{
+  "inbounds": [
+    {
+      "listen": "0.0.0.0",
+      "port": 1260,
+      "protocol": "socks",
+      "settings": {
+        "auth": "noauth",
+        "udp": true
+      },
+      "sniffing": {
+        "destOverride": [
+          "http",
+          "tls"
+        ],
+        "enabled": true
+      },
+      "tag": "socks"
+    },
+    {
+      "port": 1230,
+      "protocol": "dokodemo-door",
+      "settings": {
+        "network": "tcp,udp",
+        "followRedirect": true,
+        "timeout": 600
+      }
+    }
+  ],
+  "outbounds": [{
+    "protocol": "vmess",
+    "settings": {
+      "vnext": [{
+        "address": "120.232.214.139",
+        "port": 18932,
+        "users": [{
+          "id": "8cfb5738-9493-11eb-a8bf-f23c91cfbbc9",
+          "alterId": 2,
+          "security": "auto"
+        }]
+      }]
+    },
+    "streamSettings": {
+      "tcpSettings": {
+        "header": { 
+          "type": "http",
+          "request": {
+            "version": "1.1",
+            "method": "GET",
+            "path": "",
+            "headers": {
+              "Host": ""
+            }
+          }
+        }
+      }
+    }
+  }]
+}
+
